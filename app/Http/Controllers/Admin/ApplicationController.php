@@ -9,6 +9,7 @@ class ApplicationController extends Controller
 {
     public function index()
     {
+        // die('hello');
         return view('dashboard.admin.application');
     }
 }

@@ -49,8 +49,7 @@
                         @csrf
                         <button class="btn btn-outline btn-sm">Logout</button>
                     </form>
-
-                    <a href="#" class="btn btn-sm btn-neutral">{{ auth()->user()->name }}</a>
+                    <a href="#" class="btn btn-sm btn-error">{{ auth()->user()->name }}</a>
                 @else
                     <a href="{{ route('login') }}" class="btn btn-outline btn-sm">Login</a>
                 @endif

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -29,6 +32,11 @@ Route::post('/register/employer', [RegisterController::class, 'employerRegisterP
 Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
 
 Route::middleware(['auth', 'auth.session'])->group(function () {
-    Route::get('/admin/index', [ApplicationController::class , 'index'])->name('employer.index');
-});
+    Route::get('/admin/index', [ApplicationController::class, 'index'])->name('admin.index');
 
+    Route::resource('/admin/categories', CategoryController::class);
+
+    Route::resource('/admin/users', UserController::class);
+
+    Route::resource('/admin/payments', PaymentController::class);
+});
